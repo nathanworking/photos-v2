@@ -1,0 +1,673 @@
+@font-face {
+  font-family: 'salomeregular';
+  src: url("../fonts/salome-webfont.eot");
+  src: url("../fonts/salome-webfont.svg");
+  src: url("../fonts/salome-webfont.ttf");
+  src: url("../fonts/salome-webfont.woff");
+  src: url("../fonts/salome-webfont.woff2"); }
+@font-face {
+  font-family: 'bornregular';
+  src: url("../fonts/born-webfont.eot");
+  src: url("../fonts/born-webfont.svg");
+  src: url("../fonts/born-webfont.ttf");
+  src: url("../fonts/born-webfont.woff");
+  src: url("../fonts/born-webfont.woff2"); }
+/* --------------------------------
+
+Primary style
+
+-------------------------------- */
+*, *::after, *::before {
+  box-sizing: border-box; }
+
+/* Because... Fun */
+::selection {
+  background: #000000;
+  color: #ffffff; }
+
+/* Becuase I can't stand these */
+*:focus {
+  outline: none; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  font-size: 1.6rem;
+  font-family: "bornregular";
+  color: #000000;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+a {
+  color: #000000;
+  text-decoration: none; }
+
+p {
+  color: #333333; }
+
+h1 {
+  color: #000000;
+  margin-bottom: 1em;
+  font-size: 55px;
+  font-family: "salomeregular"; }
+
+h2 {
+  color: #000000;
+  margin-bottom: 1em;
+  font-size: 45px;
+  font-family: "salomeregular"; }
+
+h3 {
+  color: #000000;
+  margin-bottom: 1em;
+  font-size: 35px;
+  font-family: "salomeregular"; }
+
+.cd-btn {
+  display: inline-block;
+  padding: .5em 1.2em;
+  margin-bottom: 2em;
+  border-radius: 4px;
+  background-color: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+  font-size: 18px;
+  letter-spacing: 1px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  transition: color 0.2s, background-color 0.2s; }
+  .no-touch .cd-btn:hover {
+    background-color: #000000;
+    color: #ffffff; }
+  .cd-btn.active {
+    background-color: #000000;
+    color: #ffffff; }
+    .no-touch .cd-btn.active:hover {
+      background-color: transparent;
+      color: #000000; }
+
+#photos .cd-main-content {
+  background-color: #ffffff;
+  background-image: linear-gradient(#E8ECF1, #ffffff); }
+
+main {
+  height: 100vh; }
+  main h1 {
+    margin-bottom: 10px;
+    padding: 20px 0 15px 20px; }
+  main p {
+    margin-left: 20px;
+    margin-right: 20px;
+    line-height: 1.4;
+    font-size: 20px; }
+  @media screen and (max-width: 370px) {
+    main .cd-main-content {
+      padding-top: 55px; } }
+  @media only screen and (min-width: 768px) {
+    main .cd-main-content {
+      height: 100vh; }
+    main.cd-index > div {
+      padding-top: 200px; }
+    main.cd-index > div {
+      padding-top: 50px; } }
+
+.icon-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 15px auto 35px auto; }
+  .icon-box svg {
+    height: 26px;
+    opacity: 0.8; }
+  @media only screen and (min-width: 768px) {
+    .icon-box {
+      margin-left: 10px;
+      max-width: 380px;
+      flex-direction: row; }
+      .icon-box svg:hover {
+        opacity: 1; } }
+  .icon-box .socials-box {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto; }
+    .icon-box .socials-box a:nth-of-type(3) svg {
+      width: 31px; }
+    .icon-box .socials-box a:nth-of-type(4) svg {
+      width: 32px; }
+    .icon-box .socials-box svg {
+      width: 25px;
+      margin: 15px 10px; }
+  .icon-box .unsplash-box {
+    margin: 0 auto; }
+    @media only screen and (min-width: 768px) {
+      .icon-box .unsplash-box {
+        display: flex; } }
+    .icon-box .unsplash-box hr {
+      width: 50px;
+      border-top: 1px solid rgba(51, 51, 51, 0.5); }
+      @media only screen and (min-width: 768px) {
+        .icon-box .unsplash-box hr {
+          border-top: none;
+          width: 1px;
+          height: 25px;
+          margin-right: 20px;
+          margin-top: 15px;
+          border-left: 1px solid rgba(51, 51, 51, 0.5); } }
+    .icon-box .unsplash-box svg {
+      margin-top: 10px;
+      width: 137px;
+      height: 30px; }
+
+.filter-box {
+  display: flex;
+  justify-content: flex-start;
+  width: 284px;
+  margin: 0 auto;
+  text-align: center; }
+  @media only screen and (min-width: 768px) {
+    .filter-box {
+      margin-left: 20px; } }
+  .filter-box a {
+    margin-right: 10px; }
+    .filter-box a:last-of-type {
+      margin-right: 0px; }
+
+/* --------------------------------
+
+Modules - reusable parts of our design
+
+-------------------------------- */
+.cd-container {
+  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+  width: 90%;
+  max-width: 1170px;
+  margin: 0 auto; }
+  .cd-container::after {
+    /* clearfix */
+    content: '';
+    display: table;
+    clear: both; }
+
+/* --------------------------------
+
+Main components
+
+-------------------------------- */
+header {
+  position: relative;
+  height: 200px;
+  background: #E8ECF1;
+  text-align: center;
+  margin-bottom: 1em;
+  padding-top: 3em; }
+  @media only screen and (min-width: 768px) {
+    header {
+      margin-bottom: 4em; } }
+  @media only screen and (min-width: 1170px) {
+    header {
+      height: 400px;
+      padding-top: 11em; } }
+
+#cd-nav ul {
+  /* mobile first */
+  position: fixed;
+  width: 90%;
+  max-width: 400px;
+  right: 5%;
+  top: 20px;
+  border-radius: 0.25em;
+  background: #323232;
+  visibility: hidden;
+  /* remove overflow:hidden if you want to create a drop-down menu - but then remember to fix/eliminate the list items animation */
+  overflow: hidden;
+  z-index: 1;
+  /* Force Hardware Acceleration in WebKit */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+  -webkit-transform-origin: 100% 0%;
+  -moz-transform-origin: 100% 0%;
+  -ms-transform-origin: 100% 0%;
+  -o-transform-origin: 100% 0%;
+  transform-origin: 100% 0%;
+  -webkit-transition: -webkit-transform 0.3s, visibility 0s 0.3s;
+  -moz-transition: -moz-transform 0.3s, visibility 0s 0.3s;
+  transition: transform 0.3s, visibility 0s 0.3s; }
+  #cd-nav ul li {
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden; }
+  #cd-nav ul.is-visible {
+    visibility: visible;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: -webkit-transform 0.3s, visibility 0s 0s;
+    -moz-transition: -moz-transform 0.3s, visibility 0s 0s;
+    transition: transform 0.3s, visibility 0s 0s; }
+    #cd-nav ul.is-visible li:nth-child(1) {
+      /* list items animation */
+      -webkit-animation: cd-slide-in 0.2s;
+      -moz-animation: cd-slide-in 0.2s;
+      animation: cd-slide-in 0.2s; }
+    #cd-nav ul.is-visible li:nth-child(2) {
+      -webkit-animation: cd-slide-in 0.3s;
+      -moz-animation: cd-slide-in 0.3s;
+      animation: cd-slide-in 0.3s; }
+    #cd-nav ul.is-visible li:nth-child(3) {
+      -webkit-animation: cd-slide-in 0.4s;
+      -moz-animation: cd-slide-in 0.4s;
+      animation: cd-slide-in 0.4s; }
+    #cd-nav ul.is-visible li:nth-child(4) {
+      -webkit-animation: cd-slide-in 0.5s;
+      -moz-animation: cd-slide-in 0.5s;
+      animation: cd-slide-in 0.5s; }
+    #cd-nav ul.is-visible li:nth-child(5) {
+      -webkit-animation: cd-slide-in 0.6s;
+      -moz-animation: cd-slide-in 0.6s;
+      animation: cd-slide-in 0.6s; }
+#cd-nav li a {
+  display: block;
+  padding: 1.6em;
+  color: #ffffff;
+  text-align: center; }
+#cd-nav li:last-child a {
+  border-bottom: none; }
+@media only screen and (min-width: 1170px) {
+  #cd-nav ul {
+    /* the navigation moves to the top */
+    position: absolute;
+    width: auto;
+    max-width: none;
+    bottom: auto;
+    top: 36px;
+    background: transparent;
+    visibility: visible;
+    box-shadow: none;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: all 0s;
+    -moz-transition: all 0s;
+    transition: all 0s; }
+  #cd-nav li {
+    display: inline-block; }
+  #cd-nav li a {
+    opacity: 1;
+    padding: .4em;
+    margin-left: 1.6em;
+    border-bottom: none;
+    color: #323232;
+    font-family: "bornregular"; }
+    #cd-nav li a:hover {
+      color: #000000;
+      text-decoration: underline; }
+  #cd-nav.is-fixed ul {
+    /* when the user scrolls down, the navigation moves to the bottom right in Fixed position - as on touch devices */
+    position: fixed;
+    width: 90%;
+    max-width: 400px;
+    top: 20px;
+    bottom: auto;
+    background: #E8ECF1;
+    visibility: hidden;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0); }
+    #cd-nav.is-fixed ul li {
+      display: block; }
+    #cd-nav.is-fixed ul li a {
+      padding: 1.6em;
+      margin-left: 0;
+      border-bottom: 1px solid #E8ECF1; }
+  #cd-nav ul.has-transitions {
+    /* this class is used to bring back transitions when the navigation moves at the bottom right */
+    -webkit-transition: -webkit-transform 0.3s, visibility 0s 0.3s;
+    -moz-transition: -moz-transform 0.3s, visibility 0s 0.3s;
+    transition: transform 0.3s, visibility 0s 0.3s; }
+  #cd-nav ul.is-visible {
+    /* this class is used to bring back the navigation animation - as on touch devices */
+    visibility: visible;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: -webkit-transform 0.3s, visibility 0s 0s;
+    -moz-transition: -moz-transform 0.3s, visibility 0s 0s;
+    transition: transform 0.3s, visibility 0s 0s; }
+  #cd-nav ul.is-hidden {
+    /* this class is used to animate the scale down the navigation when the user scrolls down with the navigation still open */
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: -webkit-transform 0.3s;
+    -moz-transition: -moz-transform 0.3s;
+    transition: transform 0.3s; } }
+
+.cd-nav-trigger {
+  position: fixed;
+  top: 20px;
+  right: 5%;
+  width: 44px;
+  height: 44px;
+  background: #323232;
+  border-radius: 0.25em;
+  /* image replacement */
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  z-index: 2; }
+  .cd-nav-trigger span {
+    /* the span element is used to create the menu icon */
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #ffffff;
+    top: 50%;
+    margin-top: -1px;
+    left: 50%;
+    margin-left: -10px;
+    -webkit-transition: background 0.3s;
+    -moz-transition: background 0.3s;
+    transition: background 0.3s; }
+    .cd-nav-trigger span::before, .cd-nav-trigger span::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      background: inherit;
+      width: 100%;
+      height: 100%;
+      /* Force Hardware Acceleration in WebKit */
+      -webkit-transform: translateZ(0);
+      -moz-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      -o-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-transition: -webkit-transform 0.3s, background 0s;
+      -moz-transition: -moz-transform 0.3s, background 0s;
+      transition: transform 0.3s, background 0s; }
+    .cd-nav-trigger span::before {
+      top: -6px;
+      -webkit-transform: rotate(0);
+      -moz-transform: rotate(0);
+      -ms-transform: rotate(0);
+      -o-transform: rotate(0);
+      transform: rotate(0); }
+    .cd-nav-trigger span::after {
+      bottom: -6px;
+      -webkit-transform: rotate(0);
+      -moz-transform: rotate(0);
+      -ms-transform: rotate(0);
+      -o-transform: rotate(0);
+      transform: rotate(0); }
+  .cd-nav-trigger.menu-is-open {
+    box-shadow: none; }
+  .cd-nav-trigger.menu-is-open span {
+    background: #323232; }
+    .cd-nav-trigger.menu-is-open span::before, .cd-nav-trigger.menu-is-open span::after {
+      background: #ffffff; }
+    .cd-nav-trigger.menu-is-open span::before {
+      top: 0;
+      -webkit-transform: rotate(135deg);
+      -moz-transform: rotate(135deg);
+      -ms-transform: rotate(135deg);
+      -o-transform: rotate(135deg);
+      transform: rotate(135deg); }
+    .cd-nav-trigger.menu-is-open span::after {
+      bottom: 0;
+      -webkit-transform: rotate(225deg);
+      -moz-transform: rotate(225deg);
+      -ms-transform: rotate(225deg);
+      -o-transform: rotate(225deg);
+      transform: rotate(225deg); }
+  @media only screen and (min-width: 1170px) {
+    .cd-nav-trigger {
+      /* the the menu triger is hidden by default on desktop devices */
+      visibility: hidden;
+      -webkit-transform: scale(0);
+      -moz-transform: scale(0);
+      -ms-transform: scale(0);
+      -o-transform: scale(0);
+      transform: scale(0);
+      -webkit-transition: -webkit-transform 0.3s, visibility 0s 0.3s;
+      -moz-transition: -moz-transform 0.3s, visibility 0s 0.3s;
+      transition: transform 0.3s, visibility 0s 0.3s; }
+      .is-fixed .cd-nav-trigger {
+        visibility: visible;
+        -webkit-transition: all 0s;
+        -moz-transition: all 0s;
+        transition: all 0s;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+        -webkit-animation: cd-bounce-in 0.3s linear;
+        -moz-animation: cd-bounce-in 0.3s linear;
+        animation: cd-bounce-in 0.3s linear; } }
+
+@-webkit-keyframes cd-slide-in {
+  0% {
+    -webkit-transform: translateX(100px); }
+  100% {
+    -webkit-transform: translateY(0); } }
+@-moz-keyframes cd-slide-in {
+  0% {
+    -moz-transform: translateX(100px); }
+  100% {
+    -moz-transform: translateY(0); } }
+@keyframes cd-slide-in {
+  0% {
+    -webkit-transform: translateX(100px);
+    -moz-transform: translateX(100px);
+    -ms-transform: translateX(100px);
+    -o-transform: translateX(100px);
+    transform: translateX(100px); }
+  100% {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); } }
+@-webkit-keyframes cd-bounce-in {
+  0% {
+    -webkit-transform: scale(0); }
+  60% {
+    -webkit-transform: scale(1.2); }
+  100% {
+    -webkit-transform: scale(1); } }
+@-moz-keyframes cd-bounce-in {
+  0% {
+    -moz-transform: scale(0); }
+  60% {
+    -moz-transform: scale(1.2); }
+  100% {
+    -moz-transform: scale(1); } }
+@keyframes cd-bounce-in {
+  0% {
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0); }
+  60% {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2); }
+  100% {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1); } }
+/* --------------------------------
+
+Main Components
+
+-------------------------------- */
+body::after, body::before {
+  /* these are the 2 half blocks which cover the content once the animation is triggered */
+  content: '';
+  height: 50vh;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  background-color: #333333;
+  z-index: 1;
+  /* Force Hardware Acceleration */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-transition: -webkit-transform 0.4s 0.4s;
+  -moz-transition: -moz-transform 0.4s 0.4s;
+  transition: transform 0.4s 0.4s; }
+body::before {
+  top: 0;
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%); }
+body::after {
+  bottom: 0;
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  transform: translateY(100%); }
+body.page-is-changing::after, body.page-is-changing::before {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-transition: -webkit-transform 0.4s 0s;
+  -moz-transition: -moz-transform 0.4s 0s;
+  transition: transform 0.4s 0s; }
+
+.cd-cover-layer {
+  /* layer that covers the content when the animation is triggered */
+  position: fixed;
+  height: calc(100% - 20px);
+  width: calc(100% - 20px);
+  opacity: 0;
+  visibility: hidden;
+  background-color: #000000;
+  -webkit-transition: opacity 0.4s 0.4s, visibility 0s 0.8s;
+  -moz-transition: opacity 0.4s 0.4s, visibility 0s 0.8s;
+  transition: opacity 0.4s 0.4s, visibility 0s 0.8s; }
+  .cd-about .cd-cover-layer {
+    background-color: #ffffff; }
+  .page-is-changing .cd-cover-layer {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
+    -moz-transition: opacity 0.3s 0s, visibility 0s 0s;
+    transition: opacity 0.3s 0s, visibility 0s 0s; }
+  @media only screen and (min-width: 768px) {
+    .cd-cover-layer {
+      height: calc(100% - 40px);
+      width: calc(100% - 40px); } }
+
+.cd-loading-bar {
+  /* this is the loding bar - visible while switching from one page to the following one */
+  position: fixed;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  height: 2px;
+  width: 90%;
+  background-color: #000000;
+  visibility: hidden;
+  -webkit-transition: visibility 0s 0.4s, -webkit-transform 0.4s 0s ease-in;
+  -moz-transition: visibility 0s 0.4s, -moz-transform 0.4s 0s ease-in;
+  transition: visibility 0s 0.4s, transform 0.4s 0s ease-in;
+  /* Force Hardware Acceleration */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%); }
+  .cd-about .cd-loading-bar {
+    background-color: #ffffff; }
+    .cd-about .cd-loading-bar::before {
+      background-color: #000000; }
+  .cd-loading-bar::before {
+    /* this is the progress bar inside the loading bar */
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+    /* Force Hardware Acceleration */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-transform: scaleX(0);
+    -moz-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    -o-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -ms-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center; }
+  .page-is-changing .cd-loading-bar {
+    visibility: visible;
+    -webkit-transform: translateX(-50%) translateY(-50%) scaleX(0.3);
+    -moz-transform: translateX(-50%) translateY(-50%) scaleX(0.3);
+    -ms-transform: translateX(-50%) translateY(-50%) scaleX(0.3);
+    -o-transform: translateX(-50%) translateY(-50%) scaleX(0.3);
+    transform: translateX(-50%) translateY(-50%) scaleX(0.3);
+    -webkit-transition: visibility 0s 0.3s, -webkit-transform 0.4s 0.4s;
+    -moz-transition: visibility 0s 0.3s, -moz-transform 0.4s 0.4s;
+    transition: visibility 0s 0.3s, transform 0.4s 0.4s; }
+    .page-is-changing .cd-loading-bar::before {
+      -webkit-transform: scaleX(1);
+      -moz-transform: scaleX(1);
+      -ms-transform: scaleX(1);
+      -o-transform: scaleX(1);
+      transform: scaleX(1);
+      -webkit-transition: -webkit-transform 0.8s 0.8s ease-in;
+      -moz-transition: -moz-transform 0.8s 0.8s ease-in;
+      transition: transform 0.8s 0.8s ease-in; }
+  @media only screen and (min-width: 768px) {
+    .cd-loading-bar {
+      width: calc(100% - 40px); } }

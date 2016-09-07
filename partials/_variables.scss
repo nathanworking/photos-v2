@@ -1,0 +1,33 @@
+// colors
+$color-1: #000000; // Black
+$color-2: #ffffff; // White
+$color-3: #333333; // Dark Grey
+$color-4: #E8ECF1; // Light Grey
+$color-5: #323232; // Med Grey
+
+// fonts
+@font-face {
+  font-family: 'salomeregular';
+  src: url('../fonts/salome-webfont.eot');
+  src: url('../fonts/salome-webfont.svg');
+  src: url('../fonts/salome-webfont.ttf');
+  src: url('../fonts/salome-webfont.woff');
+  src: url('../fonts/salome-webfont.woff2');
+}
+@font-face {
+  font-family: 'bornregular';
+  src: url('../fonts/born-webfont.eot');
+  src: url('../fonts/born-webfont.svg');
+  src: url('../fonts/born-webfont.ttf');
+  src: url('../fonts/born-webfont.woff');
+  src: url('../fonts/born-webfont.woff2');
+}
+
+$primary-font: 'salomeregular';
+$secondary-font: 'bornregular';
+
+
+// various extras
+$left-margin-s: 20px;
+$left-margin-m: 30px;
+$left-margin-l: 40px;
