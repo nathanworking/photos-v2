@@ -4,9 +4,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500|Playfair+Display:700,900" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
-	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
 	<script src="js/min/modernizr-min.js"></script> <!-- Modernizr -->
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="js/plugins/lightgallery.min.css">
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
 
 
 	<link rel="icon" type="image/png" href="img/favicon.png">
@@ -32,24 +33,23 @@
 </head>
 
 <body>
-	<div id="cd-nav">
-		<a href="#0" class="cd-nav-trigger">Menu<span></span></a>
+		<div id="cd-nav">
+			<a href="#0" class="cd-nav-trigger">Menu<span></span></a>
 
-		<nav id="cd-main-nav">
-			<ul>
-				<li><a href="photos.html" data-type="page-transition">photos</a></li>
-				<li><a href="meet.html" data-type="page-transition">meet</a></li>
-				<li><a href="email.html" data-type="page-transition">email</a></li>
-				<li><a href="prints.html" data-type="page-transition">prints</a></li>
-			</ul>
-		</nav>
-	</div>
+			<nav id="cd-main-nav">
+				<ul>
+					<li><a href="index.html" class="active" data-type="page-transition">photos</a></li>
+					<li><a href="meet.html" data-type="page-transition">meet</a></li>
+					<li><a href="email.html" data-type="page-transition">email</a></li>
+					<li><a href="prints.html" data-type="page-transition">prints</a></li>
+				</ul>
+			</nav>
+		</div>
 
 	<main id="photos">
 		<div class="cd-index cd-main-content">
 			<div>
 				<h1>Anderson Photos</h1>
-				<h2>Anderson Photos</h2>
 				<p> Everyday I take a 35mm slide from my grandfather and a new photo from me and post them online. Some photos end up on Unsplash for anyone to use. Follow along daily on socials, or weekly via email. </p>
 
 				<!-- Social Icons -->
@@ -122,6 +122,8 @@
 				<a class="cd-btn" href="meet.html" data-type="page-transition">Nathan</a>
 			</div>
 
+			<div class="content" id="photoBox"></div>
+
 			</div>
 		</div>
 	</main>
@@ -129,6 +131,7 @@
 	<div class="cd-loading-bar"></div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="js/plugins/lightgallery-all.min.js"></script>
 <script src="js/min/main-min.js"></script> <!-- Resource jQuery -->
 
 </body>

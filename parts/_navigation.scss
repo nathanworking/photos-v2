@@ -21,25 +21,6 @@ Modules - reusable parts of our design
 Main components
 
 -------------------------------- */
-
-header { 
-	position: relative;
-	height: 200px;
-	background: $color-4;
-	text-align: center;
-	margin-bottom: 1em;
-	padding-top: 3em;
-
-	@include MQ(M) {
-		margin-bottom: 4em;
-	}
-
-	@include MQ(L) {
-		height: 400px;
-		padding-top: 11em;
-	}
-}
-
 #cd-nav {
 	ul {
 		/* mobile first */
@@ -120,7 +101,7 @@ header {
 			width: auto;
 			max-width: none;
 			bottom: auto;
-			top: 36px;
+			top: ($left-margin-l + 18);
 			background: transparent;
 			visibility: visible;
 			box-shadow: none;
@@ -131,14 +112,21 @@ header {
 		li {
 			display: inline-block;
 		}
+	  li a.active {
+      color: $color-1;
+      text-decoration: underline;
+    }
 
 		li a {
+      width: 60px;
 			opacity: 1;
 			padding: .4em;
-			margin-left: 1.6em;
+			margin-left: 3em;
 			border-bottom: none;
       color: $color-5;
       font-family: $secondary-font;
+      text-decoration: none;
+      text-transform: capitalize;
 
 			&:hover {
 				color: $color-1;
