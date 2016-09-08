@@ -140,3 +140,65 @@ jQuery(document).ready(function($){
 		}
 	}
 });
+
+// ---------------// Variables //---------------//
+// ----------------------------------------------------------------//
+var unsplashAPI = "https://api.unsplash.com/users/nathananderson/photos/?client_id=1fc3cf0554dd08f8491af5cd37ac945bebde6b5032613d61419f2b92ddde1d9a&per_page=20";
+var popularPhotos = {
+  order_by: "popular",
+  format: "json"
+};
+var latestPhotos = {
+  order_by: "latest",
+  format: "json"
+};
+var oldestPhotos = {
+  order_by: "oldest",
+  format: "json"
+};
+
+// ----------------------------------------------------------------//
+// ---------------// Unsplash Photos //---------------//
+// ----------------------------------------------------------------//
+var gallery;
+
+function displayPhotos(data) {
+    var photoData = '';
+    $.each(data, function(i, photo) {
+      photoData += '<a class="tile"' + 'data-sub-html="#' + photo.id + '"' + 'data-src="' + photo.urls.regular + '">' + '<img alt class="photo" src="' + photo.urls.regular + '">';
+    });
+    // Putitng into HTML
+		photoData += '</a>';
+    $('#photoBox').html(photoData);
+    //-----------------------------------//
+    // -------  Calling Lightbox ------- //
+    //-----------------------------------//
+				// If gallery exists already, destroy it (needed for sorting)
+    if (gallery) {gallery.data('lightGallery').destroy(true);}
+    gallery = $('#photoBox').lightGallery({
+      selector: '.tile',
+      download: false,
+      counter: false,
+      zoom: false,
+      thumbnail: false,
+      mode: 'lg-fade'
+    });
+  } // End Displayphotos function
+
+// Show popular photos on pageload
+$.getJSON(unsplashAPI, popularPhotos, displayPhotos);
+
+
+// Button Click Changes
+$('button').click(function() {
+  $('button').removeClass("active");
+  $(this).addClass("active");
+}); // End button
+
+// var hightUrl = data.images.standard_resolution.url.replace("s640x640","s1080x1080");
+
+// Button Click Changes
+$('button').click(function() {
+  $('button').removeClass("active");
+  $(this).addClass("active");
+}); // End button

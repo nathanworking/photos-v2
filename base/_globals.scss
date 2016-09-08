@@ -10,9 +10,9 @@ Primary style
 }
 
 /* Because... Fun */
-::selection {
-  background: $color-1;
-  color: $color-2;
+@include selection {
+  background-color: $color-1;
+	color: $color-2;
 }
 
 /* Becuase I can't stand these */
@@ -35,40 +35,6 @@ body {
 	@include font-smoothing;
 }
 
-
-a {
-	color: $color-1;
-	text-decoration: none;
-}
-
-p {
-	color: $color-3;
-}
-
-h1 {
-	color: $color-1;
-	margin-bottom: 1em;
-	font: {
-		size: 55px;
-		family: $primary-font;
-	}
-}
-h2 {
-	color: $color-1;
-	margin-bottom: 1em;
-	font: {
-		size: 45px;
-		family: $primary-font;
-	}
-}
-h3 {
-	color: $color-1;
-	margin-bottom: 1em;
-	font: {
-		size: 35px;
-		family: $primary-font;
-	}
-}
 
 .cd-btn {
 	display: inline-block;
@@ -107,15 +73,42 @@ h3 {
 
 main {
 	height: 100vh;
-	h1 {
-		margin-bottom: 10px;
-		padding: 20px 0 15px $left-margin-s;
-	}
 	p {
 		margin-left: $left-margin-s;
 		margin-right: $left-margin-s;
 		line-height: 1.4;
 		font-size: 20px;
+		color: $color-3;
+	}
+	a {
+		color: $color-1;
+		text-decoration: none;
+	}
+
+	h1 {
+		color: $color-1;
+		margin-bottom: 10px;
+		padding: 20px 0 15px $left-margin-s;
+		font: {
+			size: 55px;
+			family: $primary-font;
+		}
+	}
+	h2 {
+		color: $color-1;
+		margin-bottom: 1em;
+		font: {
+			size: 45px;
+			family: $primary-font;
+		}
+	}
+	h3 {
+		color: $color-1;
+		margin-bottom: 1em;
+		font: {
+			size: 35px;
+			family: $primary-font;
+		}
 	}
 
 	@media screen and (max-width: 370px) { // fix for nav on really small devices
@@ -129,12 +122,38 @@ main {
 			height: 100vh;
 		}
 
+		p {
+			margin-left: $left-margin-m;
+			margin-right: $left-margin-m;
+			max-width: 600px;
+		}
+
+		h1 {
+			padding-left: $left-margin-m;
+			padding-top: $left-margin-m;
+		}
+
 		&.cd-index > div {
 			padding-top: 200px;
 		}
 
 		&.cd-index > div {
 			padding-top: 50px;
+		}
+
+	}
+	@include MQ(L) {
+		.cd-main-content {
+			height: 100vh;
+		}
+
+		p {
+			margin-left: $left-margin-l;
+		}
+
+		h1 {
+			padding-left: $left-margin-l;
+			padding-top: $left-margin-l;
 		}
 
 	}
@@ -160,7 +179,7 @@ main {
 		opacity: 0.8;
 	}
 	@include MQ(M) {
-		margin-left: 10px;
+		margin-left: ($left-margin-m - 8);
 		max-width: 380px;
 		flex-direction: row;
 		svg {
@@ -169,10 +188,17 @@ main {
 			}
 		}
 	}
+	@include MQ(L) {
+		margin-top: 40px;
+		margin-left: ($left-margin-l - 8);
+	}
 	.socials-box {
 		display: flex;
 		flex-direction: row;
 		margin: 0 auto;
+		@include MQ(M) {
+			margin: 0;
+		}
 		a {
 			&:nth-of-type(3) svg { // twitter
 				width: 31px;
@@ -220,7 +246,10 @@ main {
 	margin: 0 auto;
 	text-align: center;
 	@include MQ(M) {
-		margin-left: $left-margin-s;
+		margin-left: $left-margin-m;
+	}
+	@include MQ(L) {
+		margin-left: $left-margin-l;
 	}
 	a {
 		margin-right: 10px;
