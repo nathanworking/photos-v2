@@ -36,35 +36,6 @@ body {
 }
 
 
-.cd-btn {
-	display: inline-block;
-	padding: .5em 1.2em;
-	margin-bottom: 2em;
-	border-radius: 4px;
-	background-color: transparent;
-	color: $color-1;
-	border: 2px solid $color-1;
-	font-size: 18px;
-	letter-spacing: 1px;
-	box-shadow: 0 1px 4px rgba(#000, .1);
-	transition: color 0.2s, background-color 0.2s;
-
-	.no-touch &:hover {
-		background-color: $color-1;
-		color: $color-2;
-	}
-
-	&.active {
-		background-color: $color-1;
-		color: $color-2;
-		.no-touch &:hover {
-			background-color: transparent;
-			color: $color-1;
-		}
-	}
-
-}
-
 #photos .cd-main-content {
 	background-color: $color-2; // Fallback
 	background-image: linear-gradient( $color-4, $color-2);
@@ -235,26 +206,6 @@ main {
 			margin-top: 10px;
 			width: 137px;
 			height: 30px;
-		}
-	}
-}
-
-.filter-box {
-	display: flex;
-	justify-content: flex-start;
-	width: 284px;
-	margin: 0 auto;
-	text-align: center;
-	@include MQ(M) {
-		margin-left: $left-margin-m;
-	}
-	@include MQ(L) {
-		margin-left: $left-margin-l;
-	}
-	a {
-		margin-right: 10px;
-		&:last-of-type {
-			margin-right: 0px;
 		}
 	}
 }
