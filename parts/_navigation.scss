@@ -90,10 +90,6 @@ Main components
     text-align: center;
 	}
 
-	li:last-child a {
-		border-bottom: none;
-	}
-
 	@include MQ(L) {
 		ul {
 			/* the navigation moves to the top */
@@ -111,11 +107,29 @@ Main components
 
 		li {
 			display: inline-block;
+			&:after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				margin-left: 63px;
+				width: 30px;
+				height: 2px;
+				opacity: 0;
+				background: $color-1;
+				-webkit-transition: opacity 0.2s;
+				transition: opacity 0.2s;
+			}
+			&:hover:after {
+				opacity: 1;
+			}
+			&.active a{
+				color: $color-1;
+			}
+			&.active:after {
+				opacity: 1;
+				color: $color-1;
+			}
 		}
-	  li a.active {
-      color: $color-1;
-      text-decoration: underline;
-    }
 
 		li a {
       width: 60px;
@@ -123,14 +137,13 @@ Main components
 			padding: .4em;
 			margin-left: 3em;
 			border-bottom: none;
-      color: $color-5;
+      color: lighten($color-5, 3);
       font-family: $secondary-font;
       text-decoration: none;
       text-transform: capitalize;
 
 			&:hover {
 				color: $color-1;
-        text-decoration: underline;
 			}
 		}
 

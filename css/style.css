@@ -46,28 +46,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-.cd-btn {
-  display: inline-block;
-  padding: .5em 1.2em;
-  margin-bottom: 2em;
-  border-radius: 4px;
-  background-color: transparent;
-  color: #000000;
-  border: 2px solid #000000;
-  font-size: 18px;
-  letter-spacing: 1px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  transition: color 0.2s, background-color 0.2s; }
-  .no-touch .cd-btn:hover {
-    background-color: #000000;
-    color: #ffffff; }
-  .cd-btn.active {
-    background-color: #000000;
-    color: #ffffff; }
-    .no-touch .cd-btn.active:hover {
-      background-color: transparent;
-      color: #000000; }
-
 #photos .cd-main-content {
   background-color: #ffffff;
   background-image: linear-gradient(#E8ECF1, #ffffff); }
@@ -179,23 +157,6 @@ main {
       width: 137px;
       height: 30px; }
 
-.filter-box {
-  display: flex;
-  justify-content: flex-start;
-  width: 284px;
-  margin: 0 auto;
-  text-align: center; }
-  @media only screen and (min-width: 768px) {
-    .filter-box {
-      margin-left: 45px; } }
-  @media only screen and (min-width: 1170px) {
-    .filter-box {
-      margin-left: 85px; } }
-  .filter-box a {
-    margin-right: 10px; }
-    .filter-box a:last-of-type {
-      margin-right: 0px; }
-
 /* --------------------------------
 
 Modules - reusable parts of our design
@@ -286,8 +247,6 @@ Main components
   padding: 1.6em;
   color: #ffffff;
   text-align: center; }
-#cd-nav li:last-child a {
-  border-bottom: none; }
 @media only screen and (min-width: 1170px) {
   #cd-nav ul {
     /* the navigation moves to the top */
@@ -309,22 +268,36 @@ Main components
     transition: all 0s; }
   #cd-nav li {
     display: inline-block; }
-  #cd-nav li a.active {
-    color: #000000;
-    text-decoration: underline; }
+    #cd-nav li:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      margin-left: 63px;
+      width: 30px;
+      height: 2px;
+      opacity: 0;
+      background: #000000;
+      -webkit-transition: opacity 0.2s;
+      transition: opacity 0.2s; }
+    #cd-nav li:hover:after {
+      opacity: 1; }
+    #cd-nav li.active a {
+      color: #000000; }
+    #cd-nav li.active:after {
+      opacity: 1;
+      color: #000000; }
   #cd-nav li a {
     width: 60px;
     opacity: 1;
     padding: .4em;
     margin-left: 3em;
     border-bottom: none;
-    color: #323232;
+    color: #3f3f3f;
     font-family: "bornregular";
     text-decoration: none;
     text-transform: capitalize; }
     #cd-nav li a:hover {
-      color: #000000;
-      text-decoration: underline; }
+      color: #000000; }
   #cd-nav.is-fixed ul {
     /* when the user scrolls down, the navigation moves to the bottom right in Fixed position - as on touch devices */
     position: fixed;
@@ -686,6 +659,99 @@ body.page-is-changing::after, body.page-is-changing::before {
     .cd-loading-bar {
       width: calc(100% - 40px); } }
 
+.cd-btn {
+  display: inline-block;
+  padding: .35em 1.2em;
+  margin-bottom: 1em;
+  border-radius: 2px;
+  background-color: transparent;
+  color: #000000;
+  border: 1px solid #000000;
+  font-size: 16px;
+  letter-spacing: 1px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  transition: color 0.2s, background-color 0.2s; }
+  .no-touch .cd-btn:hover {
+    background-color: #000000;
+    color: #ffffff;
+    cursor: pointer; }
+  .cd-btn.active {
+    background-color: #000000;
+    color: #ffffff; }
+    .no-touch .cd-btn.active:hover {
+      background-color: #323232;
+      color: #ffffff; }
+
+.filter-box {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 15px auto;
+  text-align: center; }
+  .filter-box button {
+    margin-right: 10px;
+    font-family: "bornregular"; }
+    .filter-box button:last-of-type {
+      margin-right: 0px; }
+  .filter-box .filter-buttons {
+    width: 100%;
+    margin: 0 auto; }
+    @media only screen and (min-width: 768px) {
+      .filter-box .filter-buttons {
+        width: auto;
+        margin: 0; } }
+  .filter-box .sort-buttons {
+    display: flex;
+    margin: 0 auto 15px auto; }
+    @media only screen and (min-width: 768px) {
+      .filter-box .sort-buttons {
+        margin: 10px auto 5px 40px; } }
+    .filter-box .sort-buttons hr {
+      width: 1px;
+      height: 18px;
+      margin: 0 10px;
+      border-right: 1px solid rgba(51, 51, 51, 0.6); }
+    .filter-box .sort-buttons .sort-btn {
+      color: #323232;
+      background: transparent;
+      border: transparent; }
+      .filter-box .sort-buttons .sort-btn:hover {
+        text-decoration: underline;
+        color: #000000;
+        cursor: pointer; }
+      .filter-box .sort-buttons .sort-btn.active {
+        text-decoration: underline;
+        color: #000000; }
+
+.container {
+  -webkit-column-count: 1;
+  -moz-column-count: 1;
+  column-count: 1;
+  max-width: 940px; }
+  .container .mix {
+    text-align: left;
+    margin: 0 0 15px;
+    display: none;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-origin: 50% 0; }
+    .container .mix a:hover {
+      opacity: 0.9;
+      transition: all 0.2s ease-in-out;
+      background-color: white;
+      cursor: pointer; }
+    .container .mix img {
+      width: 100%;
+      border-radius: 2px; }
+
+.photo-area-container {
+  margin: 15px 20px; }
+  @media only screen and (min-width: 768px) {
+    .photo-area-container {
+      margin: 20px 45px; } }
+  @media only screen and (min-width: 1170px) {
+    .photo-area-container {
+      margin: 20px 85px; } }
+
 /* Edits for styles on lightgallery plugin */
 .lg-backdrop {
   background: rgba(0, 0, 0, 0.95); }
@@ -700,59 +766,23 @@ body.page-is-changing::after, body.page-is-changing::before {
   .lg-outer .lg-img-wrap .lg-item, .lg-outer .lg-item .lg-item {
     background: none; }
 
-.lg-actions .lg-next, .lg-actions .lg-prev, .lg-toolbar {
-  background: none; }
-
-.lg-actions .lg-prev:after {
-  content: 'Back';
-  right: -100px;
-  position: absolute;
-  top: 0;
-  font-family: "bornregular";
-  color: #ffffff; }
-.lg-actions .lg-next:before {
-  content: 'Next';
-  left: -60px;
-  position: absolute;
-  top: 50%;
-  font-family: "bornregular";
-  color: #ffffff; }
-@media (max-width: 1400px) {
-  .lg-actions .lg-next:before {
-    color: transparent; } }
-@media (max-width: 1400px) {
-  .lg-actions .lg-prev:after {
-    color: transparent; } }
-
-.lg-sub-html {
-  max-width: 850px;
-  margin: 0 auto 18.2% auto;
-  background: #000000;
-  color: #ffffff;
-  text-align: left;
-  padding-left: 1em; }
-  .lg-sub-html p {
-    margin: 0;
-    font-size: 20px; }
-  .lg-sub-html .photo-title {
-    margin-bottom: 0em; }
-  .lg-sub-html .photo-description {
-    padding: 1em 0;
-    line-height: 1.5; }
-  @media (max-height: 1250px) {
-    .lg-sub-html {
-      margin-bottom: 0; } }
-  @media (min-width: 1250px) {
-    .lg-sub-html {
-      margin: 0 auto 5% auto; } }
-
-/* Hide toolbar becuase I don't need these right now */
-div.lg-toolbar.group {
+.lg-actions .lg-next, .lg-actions .lg-prev, .lg-autoplay-button, .lg-fullscreen {
+  background: none;
   display: none; }
 
+.lg-toolbar {
+  width: 100%;
+  background: transparent; }
+  .lg-toolbar .lg-close {
+    width: 100%; }
+  .lg-toolbar .lg-close:after {
+    content: 'close';
+    font-family: "bornregular";
+    color: #E8ECF1;
+    text-align: center; }
+
 .content {
-  display: flex;
-  flex-direction: column;
+  width: 25%;
   margin: 0 20px; }
   .content .tile {
     margin-top: 1em;
@@ -764,14 +794,15 @@ div.lg-toolbar.group {
     @media only screen and (min-width: 1170px) {
       .content .tile {
         max-width: 620px;
-        height: auto;
+        height: 100%;
         margin-left: 20px; } }
     .content .tile .photo {
-      width: 100%; }
+      width: 100%;
+      border-radius: 2px; }
       @media only screen and (min-width: 1170px) {
         .content .tile .photo {
           max-width: 620px;
-          height: auto; } }
+          height: 100%; } }
   @media only screen and (min-width: 768px) {
     .content {
       flex-wrap: wrap;
@@ -790,3 +821,16 @@ div.lg-toolbar.group {
 
 .photo-description {
   padding: 0.25em 0; }
+
+.lazyload {
+  opacity: 0; }
+
+.lazyloading {
+  opacity: 1;
+  transition: 300ms opacity;
+  background: #f7f7f7 url(//afarkas.github.io/lazysizes/assets/imgs/loader.gif) no-repeat center;
+  min-height: 60px; }
+
+.lazyloaded {
+  opacity: 1;
+  transition: 9ms opacity; }
