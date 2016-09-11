@@ -1,0 +1,45 @@
+#photos-page {
+  h1 {
+    max-width: 80%;
+    margin-bottom: 35px;
+    @include MQ(M) {
+      max-width: 100%;
+    }
+    span {
+      position: absolute;
+      padding-left: 40px;
+      margin-top: 55px;
+      left: 15px;
+      @include MQ(M) {
+        left: 250px;
+      }
+      @include MQ(L) {
+        left: 280px;
+      }
+    }
+  }
+
+  .filter-box {
+    text-align: left;
+
+  }
+
+  .sort-buttons {
+    margin-left: $left-margin-m;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+  .mix {
+    display: inline-block;
+    width: 31%;
+    height: auto;
+    img {
+      width: 100%;
+    }
+  }
+
+
+
+}

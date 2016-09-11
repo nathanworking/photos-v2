@@ -64,6 +64,11 @@ main {
 			size: 55px;
 			family: $primary-font;
 		}
+		span {
+			font-size: 20px;
+			font-family: $secondary-font;
+			position: absolute;
+		}
 	}
 	h2 {
 		color: $color-1;

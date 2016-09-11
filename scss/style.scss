@@ -11,5 +11,6 @@
 
 // Parts
 	@import '../parts/navigation'; // page transitions
-	@import '../parts/page-transition'; // smart navigation
 	@import '../parts/photo'; // photo grid & main photo styles
+	// Pages
+		@import '../parts/photos-page'; // photo grid & main photo styles
